@@ -1,6 +1,6 @@
 ﻿#include <vector>
 
-class Solution {
+class AvarageSalary {
 public:
     double average(const std::vector<int>& salary) {
         double result = 0;
