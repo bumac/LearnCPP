@@ -11,16 +11,19 @@
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
-        std::vector<ListNode*> r;
         int result = 0;
 
         ListNode* current = head;
-        r.push_back(current);
-        while(current->next){
+        while(current){
+            ++result;
             current = current->next;
-            r.push_back(current);
         }
         
-        return r[r.size() / 2];
+        current = head;
+        for(int i = 0; i < result / 2; ++i){
+            current = current->next;
+        }
+        
+        return current;
     }
 };
