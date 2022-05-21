@@ -11,19 +11,16 @@
 class Solution {
 public:
     int getDecimalValue(ListNode* head) {
-        std::vector<int> r;
         int result = 0;
         
         ListNode* current = head;
-        r.push_back(current->val);
-        while(current->next){
-            current = current->next;
-            r.push_back(current->val);
-        }
         
-        for(int i = 0; i < r.size(); i++){
-            result += r[i] * std::pow(2, r.size() - 1 - i);
+        while(current){
+            result <<= 1;
+            result |= current->val;
+            current = current->next;
         }
+
         return result;
     }
 };
